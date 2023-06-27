@@ -1,9 +1,12 @@
-import React from 'react';
+import Header from "./components/Header";
+import Body from "./components/Body";
+import { Outlet } from "react-router-dom";
 
 function App() {
   return (
     <div>
-      <h1>Restaurant App!</h1>
+      <Header />
+      <Outlet />
     </div>
   );
 }
