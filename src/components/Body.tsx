@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import RestaurantCard from "./RestaurantCard";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body: React.FC = () => {
   const [restaurantList, setRestaurantList] = useState<any[]>([]);
@@ -30,6 +31,13 @@ const Body: React.FC = () => {
     });
     setFilteredRestaurantList(filteredRestaurantList);
   };
+
+  const onlineStatus = useOnlineStatus();
+
+  if (onlineStatus == false)
+    return (
+      <h1>Looks Like You're Offline, Please Check Your Internet Connection!</h1>
+    );
 
   if (restaurantList.length == 0) {
     return <div>Loading .....</div>;
