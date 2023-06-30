@@ -45,15 +45,21 @@ const Body: React.FC = () => {
 
   return (
     <div className="body">
-      <div className="search">
+      <div className="m-4 p-4">
         <input
           type="text"
-          placeholder="search"
+          className="border border-solid border-black placeholder:pl-[14px]"
+          placeholder="Search"
           onChange={(event) => search(event)}
         />
-        <button onClick={() => setSearchText("")}>Clear</button>
+        <button
+          className="px-4 py-2 m-4 bg-green-100 rounded-lg hover:bg-green-400"
+          onClick={() => setSearchText("")}
+        >
+          Clear
+        </button>
       </div>
-      <div className="res-container">
+      <div className="flex flex-wrap">
         {filteredRestaurantList.map((res: (typeof restaurantList)[0]) => (
           <Link to={"restaurants/" + res.data.id} key={res.data.id}>
             <RestaurantCard
